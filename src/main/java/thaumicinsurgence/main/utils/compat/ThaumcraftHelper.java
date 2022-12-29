@@ -7,10 +7,12 @@ import net.minecraft.util.ResourceLocation;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchItem;
 import thaumcraft.api.research.ResearchPage;
+import thaumcraft.common.config.ConfigItems;
 import thaumicinsurgence.main.Config;
 import thaumicinsurgence.main.utils.BlockInterface;
 import thaumicinsurgence.main.utils.ItemInterface;
@@ -216,6 +218,8 @@ public class ThaumcraftHelper implements IModHelper {
     }
 
     public static InfusionRecipe infusionIntercepter;
+    public static InfusionRecipe thaumicInterfacer;
+    public static CrucibleRecipe soapAlpha;
 
     public static void getBlocks() {
         plant = BlockInterface.getBlock(Name, "blockCustomPlant");
@@ -267,6 +271,20 @@ public class ThaumcraftHelper implements IModHelper {
                     new ItemStack(metal, 1, MetalDeviceType.ALEMBIC.ordinal()),
                     new ItemStack(metal, 1, MetalDeviceType.ALCHEMICAL_CONSTRUCT.ordinal())
                 });
+
+        thaumicInterfacer = ThaumcraftApi.addInfusionCraftingRecipe(
+                "TI_ThaumicInterfacer",
+                new ItemStack(Config.thaumicInterfacer),
+                64,
+                new AspectList().add(Aspect.FIRE, 8),
+                new ItemStack(metal, 1, MetalDeviceType.MNEMONIC_MATRIX.ordinal()),
+                new ItemStack[] {new ItemStack(metal, 2, MetalDeviceType.ALEMBIC.ordinal())});
+
+        soapAlpha = ThaumcraftApi.addCrucibleRecipe(
+                "TI_SanitizingSoapAlpha",
+                new ItemStack(Config.soapAlpha),
+                new ItemStack(ConfigItems.itemSanitySoap),
+                new AspectList().add(Aspect.HEAL, 32).add(Aspect.ORDER, 64));
     }
 
     public static void setupResearch() {
@@ -277,6 +295,27 @@ public class ThaumcraftHelper implements IModHelper {
                 new ResourceLocation(VersionInfo.ModID, "textures/gui/eldritch_bg.png"));
         ResearchItem infusionIntercepterPage;
         ResearchPage intercepter1, intercepter2;
+
+        ResearchItem redCrownPage;
+        ResearchPage redCrown1;
+
+        ResearchItem thaumicInterfacerPage;
+        ResearchPage thaumicInterfacer1;
+        ResearchPage thaumicInterface2;
+
+        ResearchItem soapAlphaPage;
+        ResearchPage soapAlpha1;
+        ResearchPage soapAlpha2;
+
+        soapAlphaPage = new ResearchItem(
+                "TI_SanitizingSoapAlpha",
+                category,
+                new AspectList().add(Aspect.HEAL, 1).add(Aspect.ORDER, 1),
+                2,
+                2,
+                2,
+                new ItemStack(Config.soapAlpha));
+
         infusionIntercepterPage = new ResearchItem(
                 "TI_InfusionIntercepter",
                 category,
@@ -289,14 +328,49 @@ public class ThaumcraftHelper implements IModHelper {
                         .add(Aspect.EXCHANGE, 1),
                 0,
                 0,
-                1,
+                0,
                 new ItemStack(Config.infusionIntercepter));
+
+        redCrownPage = new ResearchItem(
+                "TI_RedCrown", category, new AspectList(), 5, 5, 5, new ItemStack(Config.redCrownItem));
+
+        thaumicInterfacerPage = new ResearchItem(
+                "TI_ThaumicInterfacer",
+                category,
+                new AspectList().add(Aspect.FIRE, 1).add(Aspect.TOOL, 1),
+                -5,
+                5,
+                -5,
+                new ItemStack(Config.thaumicInterfacer));
+
         intercepter1 = new ResearchPage("InfusionIntercepter.1");
         intercepter2 = new ResearchPage(infusionIntercepter);
+
+        redCrown1 = new ResearchPage("RedCrown.1");
+
+        thaumicInterfacer1 = new ResearchPage("ThaumicInterfacer.1");
+        thaumicInterface2 = new ResearchPage(thaumicInterfacer);
+
+        soapAlpha1 = new ResearchPage("SoapAlpha.1");
+        soapAlpha2 = new ResearchPage(soapAlpha);
+
         infusionIntercepterPage.setPages(intercepter1, intercepter2);
         infusionIntercepterPage.setParents("INFUSION");
+
+        redCrownPage.setPages(redCrown1);
+        redCrownPage.setParents("TI_RedCrown");
+
+        thaumicInterfacerPage.setPages(thaumicInterfacer1, thaumicInterface2);
+        thaumicInterfacerPage.setParents("INFUSION");
+
+        soapAlphaPage.setPages(soapAlpha1, soapAlpha2);
+        soapAlphaPage.setParents("SANESOAP");
+
         ThaumcraftApi.addWarpToResearch("TI_InfusionIntercepter", 4);
         ResearchCategories.addResearch(infusionIntercepterPage);
+        ResearchCategories.addResearch(redCrownPage);
+        ResearchCategories.addResearch(thaumicInterfacerPage);
+        ResearchCategories.addResearch(soapAlphaPage);
     }
 
     public static ResearchPage getResearchPage(String ident) {

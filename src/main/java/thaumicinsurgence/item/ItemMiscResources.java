@@ -38,7 +38,7 @@ public class ItemMiscResources extends Item {
     public void getSubItems(Item item, CreativeTabs tabs, List list) {
         for (ResourceType type : ResourceType.values()) {
             if (type.showInList) {
-                list.add(this.getStackForType(type));
+                //  list.add(this.getStackForType(type));
             }
         }
     }

@@ -13,24 +13,23 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import thaumcraft.api.crafting.IInfusionStabiliser;
 import thaumicinsurgence.main.utils.TabThaumicInsurgence;
 import thaumicinsurgence.main.utils.VersionInfo;
-import thaumicinsurgence.tileentity.TileEntityInfusionFucker;
+import thaumicinsurgence.tileentity.TileEntityStabilizerTesting;
 
-public class BlockInfusionFucker extends BlockContainer {
-
-    @Override
+public class BlockStabilizerTesting extends BlockContainer implements IInfusionStabiliser {
     public TileEntity createNewTileEntity(World world, int metadata) {
-        return new TileEntityInfusionFucker();
+        return new TileEntityStabilizerTesting();
     }
 
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
-    public BlockInfusionFucker() {
+    public BlockStabilizerTesting() {
         super(Material.rock);
         this.setCreativeTab(TabThaumicInsurgence.tabThaumicInsurgence);
-        this.setBlockName("infusionIntercepter");
+        this.setBlockName("thaumicStabilizer");
         this.setHardness(1f);
         this.setResistance(1.5f);
         this.setHarvestLevel("axe", 0);
@@ -39,12 +38,15 @@ public class BlockInfusionFucker extends BlockContainer {
     @Override
     public boolean onBlockActivated(
             World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
-        return false;
+        boolean activate = false;
+
+        return activate;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
+
         if (side == 0) {
             return icons[0];
         } else if (side == 1) {
@@ -61,18 +63,15 @@ public class BlockInfusionFucker extends BlockContainer {
     public void registerBlockIcons(IIconRegister register) {
         icons = new IIcon[4];
 
-        icons[0] = register.registerIcon(VersionInfo.ModID + ":arcane_stone_bricks_alt4");
-        icons[1] = register.registerIcon(VersionInfo.ModID + ":arcane_stone_bricks_alt5");
-        icons[2] = register.registerIcon(VersionInfo.ModID + ":arcane_stone_bricks_alt6");
-        icons[3] = register.registerIcon(VersionInfo.ModID + ":arcane_stone_bricks_alt6");
+        icons[0] = register.registerIcon(VersionInfo.ModID + ":arcane_stone_bricks");
+        icons[1] = register.registerIcon(VersionInfo.ModID + ":arcane_stone_alt8");
+        icons[2] = register.registerIcon(VersionInfo.ModID + ":arcane_stone_bricks");
+        icons[3] = register.registerIcon(VersionInfo.ModID + ":arcane_stone_bricks");
     }
 
     @Override
     public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
         TileEntity te = world.getTileEntity(x, y, z);
-        if (((TileEntityInfusionFucker) te).stabilityHasBeenAdded) {
-            ((TileEntityInfusionFucker) te).removeStability();
-        }
         if (te != null && te instanceof IInventory) {
             IInventory inventory = (IInventory) te;
 
@@ -98,5 +97,10 @@ public class BlockInfusionFucker extends BlockContainer {
         }
 
         super.breakBlock(world, x, y, z, block, meta);
+    }
+
+    @Override
+    public boolean canStabaliseInfusion(World var1, int var2, int var3, int var4) {
+        return true;
     }
 }

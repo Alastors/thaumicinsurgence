@@ -19,6 +19,22 @@ tc.research_name.TI_InfusionIntercepter=Infusion Intercepter
 tc.research_text.TI_InfusionIntercepter=Fucking Azanor's "balance" since 2022!
 InfusionInterceptor.1=Do you hate how slow infusion is? Are you sick and tired of the lag associated with WAing it? WELL DO I HAVE THE SOLUTION FOR YOU!!! FOR ONE LOW LOW PAYMENT OF [2000 warp] I CAN JAILBREAK YOUR INFUSION MATRIX FOR YOU AND ALLOW IT TO ACCEPT THE ESSENTIA PROVIDER!!! Place the intercepter directly below your infusion altar's center pedestal, it takes essentia from the bottom face.
 
+
+
+tc.research_name.TI_SanitizingSoapAlpha=Sanitizing Soap Alpha
+tc.research_text.TI_SanitizingSoapAlpha=Every day we inch closer to replacing Azanor.
+
 #Tiles
+
+#Items
 tile.infusionIntercepter.name=Infusion Intercepter
-item.armor.ItemRedCrown.name=Red Crown
+
+
+item.ItemRedCrown.name=Red Crown
+item.ItemEightBitRedCrown.name=Red Crown
+item.ItemAlastorsWand.name=Alastor's First Wand
+item.ItemSanitySoapAlpha.name=Trosma Sláintíochta Soap
+
+itemGroup.Thaumic Insurgence=Thaumic Insurgence
+
+

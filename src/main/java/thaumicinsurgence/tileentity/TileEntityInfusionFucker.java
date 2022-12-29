@@ -82,6 +82,18 @@ public class TileEntityInfusionFucker extends TileEntity implements IAspectConta
         }
     }
 
+    public void addStability() {
+        matrix.instability -= 20;
+        addedStability = true;
+        stabilityHasBeenAdded = true;
+    }
+
+    public void removeStability() {
+        matrix.instability += 20;
+        addedStability = false;
+        stabilityHasBeenAdded = false;
+    }
+
     /** If an input exists, this method will see if it contains the IEssentiaTransport interface, and if it does, it will
      *  set the current input to the whatever is trying to input */
     public void setInput() {
