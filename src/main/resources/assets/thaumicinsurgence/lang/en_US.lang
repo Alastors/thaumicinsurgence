@@ -27,8 +27,15 @@ PreviousIntercepterLore=Do you hate how slow infusion is? Are you sick and tired
 item.ItemPactRing.name=Ring of Pacts
 
 
+PreviousIntercepterLore=Do you hate how slow infusion is? Are you sick and tired of the lag associated with WAing it? WELL DO I HAVE THE SOLUTION FOR YOU!!! FOR ONE LOW LOW PAYMENT OF [$4.99 warp] I CAN JAILBREAK YOUR INFUSION MATRIX FOR YOU AND ALLOW IT TO ACCEPT THE ESSENTIA PROVIDER!!! Place the intercepter directly below your infusion altar's center pedestal, it takes essentia from the bottom face.
+
+item.ItemPactRing.name=Ring of Pacts
+
+
 tc.research_name.TI_SanitizingSoapAlpha=Sanitizing Soap Alpha
+
 tc.research_text.TI_SanitizingSoapAlpha=Washing away the sins of the past
+
 
 tc.research_name.TI_SanitizingSoapBeta=Alastor's Soap
 tc.research_text.TI_SanitizingSoapBeta=In the [Deep Abyss] lies a [Great Deal] he said... but at what cost?
