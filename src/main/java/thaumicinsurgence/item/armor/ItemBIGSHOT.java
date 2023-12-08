@@ -10,7 +10,11 @@ import net.minecraft.world.World;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import thaumcraft.api.*;
+import thaumcraft.api.IGoggles;
+import thaumcraft.api.IRepairable;
+import thaumcraft.api.IRunicArmor;
+import thaumcraft.api.IVisDiscountGear;
+import thaumcraft.api.IWarpingGear;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.nodes.IRevealer;
 import thaumcraft.common.items.armor.ItemGoggles;
@@ -48,10 +52,6 @@ public class ItemBIGSHOT extends ItemGoggles
     @Override
     public int getWarp(ItemStack var1, EntityPlayer var2) {
         return 5;
-    }
-
-    public boolean showNodes(ItemStack itemstack, EntityLivingBase player) {
-        return true;
     }
 
     public void onUpdate(final ItemStack stack, final World world, final Entity entity, final int i, final boolean b) {

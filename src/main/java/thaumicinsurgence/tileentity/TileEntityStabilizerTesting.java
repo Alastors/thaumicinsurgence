@@ -22,7 +22,7 @@ public class TileEntityStabilizerTesting extends TileNodeStabilizer implements I
          * do anything if the matrix didn't exist to save idle performance
          */
         if (matrix != null) {
-            matrixFuckery();
+            matrixIntercepterStuff();
         }
     }
 
@@ -50,7 +50,7 @@ public class TileEntityStabilizerTesting extends TileNodeStabilizer implements I
         } catch (Exception ignored) {}
     }
 
-    public void matrixFuckery() {}
+    public void matrixIntercepterStuff() {}
 
     public void updateRedstone(boolean state) {
         if (this.redstoneState != null && state && !this.redstoneState) {

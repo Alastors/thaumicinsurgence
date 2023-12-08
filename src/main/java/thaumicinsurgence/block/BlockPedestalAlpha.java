@@ -1,8 +1,12 @@
 package thaumicinsurgence.block;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
@@ -13,7 +17,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.common.blocks.BlockStoneDevice;
 import thaumcraft.common.lib.utils.InventoryUtils;
-import thaumcraft.common.tiles.*;
+import thaumcraft.common.tiles.TilePedestal;
 import thaumicinsurgence.main.Config;
 import thaumicinsurgence.main.utils.TabThaumicInsurgence;
 import thaumicinsurgence.main.utils.VersionInfo;
@@ -30,6 +34,12 @@ public class BlockPedestalAlpha extends BlockStoneDevice {
         this.setCreativeTab(TabThaumicInsurgence.tabThaumicInsurgence);
         this.setBlockName("pedestalAlpha");
         this.setHarvestLevel("pickaxe", 0);
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List list) {
+        list.add(new ItemStack(par1, 1, 0));
     }
 
     public IIcon getIcon(int side, int meta) {

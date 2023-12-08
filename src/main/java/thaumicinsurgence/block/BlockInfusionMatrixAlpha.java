@@ -4,8 +4,11 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
@@ -29,6 +32,12 @@ public class BlockInfusionMatrixAlpha extends BlockStoneDevice {
         this.setCreativeTab(TabThaumicInsurgence.tabThaumicInsurgence);
         this.setBlockName("matrixAlpha");
         this.setHarvestLevel("pickaxe", 0);
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List list) {
+        list.add(new ItemStack(par1, 1, 0));
     }
 
     @SideOnly(Side.CLIENT)

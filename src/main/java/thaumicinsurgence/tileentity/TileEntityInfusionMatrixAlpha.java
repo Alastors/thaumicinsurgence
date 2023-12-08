@@ -21,8 +21,12 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -40,6 +44,7 @@ import thaumcraft.common.config.ConfigBlocks;
 import thaumcraft.common.container.InventoryFake;
 import thaumcraft.common.lib.crafting.InfusionRunicAugmentRecipe;
 import thaumcraft.common.lib.crafting.ThaumcraftCraftingManager;
+import thaumcraft.common.lib.events.EssentiaHandler;
 import thaumcraft.common.lib.network.PacketHandler;
 import thaumcraft.common.lib.network.fx.PacketFXBlockZap;
 import thaumcraft.common.lib.network.fx.PacketFXInfusionSource;
@@ -101,7 +106,6 @@ public class TileEntityInfusionMatrixAlpha extends TileInfusionMatrix implements
         this.recipeEssentia.writeToNBT(nbtCompound);
     }
 
-    // Directly from the infusion matrix
     // TODO: change as needed
     @Override
     public void readFromNBT(NBTTagCompound nbtCompound) {
@@ -133,7 +137,6 @@ public class TileEntityInfusionMatrixAlpha extends TileInfusionMatrix implements
         }
     }
 
-    // Directly from the infusion matrix
     // TODO: change as needed
     @Override
     public void writeToNBT(NBTTagCompound nbtCompound) {
@@ -185,7 +188,6 @@ public class TileEntityInfusionMatrixAlpha extends TileInfusionMatrix implements
         }
     }
 
-    // Directly from the infusion matrix, but slightly modified.
     // TODO: change as needed
     @Override
     public void updateEntity() {
@@ -221,7 +223,6 @@ public class TileEntityInfusionMatrixAlpha extends TileInfusionMatrix implements
         }
     }
 
-    // Directly from the infusion matrix
     // TODO: change as needed
     private void inEvZap(boolean all) {
         List<Entity> targets = this.worldObj.getEntitiesWithinAABB(
@@ -257,7 +258,6 @@ public class TileEntityInfusionMatrixAlpha extends TileInfusionMatrix implements
         }
     }
 
-    // Directly from the infusion matrix
     // TODO: change as needed
     private void inEvHarm(boolean all) {
         List<EntityLivingBase> targets = this.worldObj.getEntitiesWithinAABB(
@@ -286,7 +286,6 @@ public class TileEntityInfusionMatrixAlpha extends TileInfusionMatrix implements
         }
     }
 
-    // Directly from the infusion matrix
     // TODO: change as needed
     private void inEvWarp() {
         List<EntityPlayer> targets = this.worldObj.getEntitiesWithinAABB(
@@ -308,7 +307,6 @@ public class TileEntityInfusionMatrixAlpha extends TileInfusionMatrix implements
         }
     }
 
-    // Directly from the infusion matrix
     // TODO: change as needed
     private void inEvEjectItem(int type) {
         for (int q = 0; q < 50 && this.pedestals.size() > 0; ++q) {
@@ -374,7 +372,6 @@ public class TileEntityInfusionMatrixAlpha extends TileInfusionMatrix implements
         }
     }
 
-    // Taken from the infusion matrix, but I changed the if statements to reduce redundancy
     // TODO: change as needed
     @Override
     public boolean validLocation() {
@@ -753,19 +750,30 @@ public class TileEntityInfusionMatrixAlpha extends TileInfusionMatrix implements
             // this section is all related to sucking in vis as it comes, I can easily improve this.
             // or alternatively, I could straight remove this and use my intercepter as the absolute essentia method.
             // TODO: no Alastor, you can't remove this fully, or the matrix will just do the recipe for free!
-            /*
-             * if (this.recipeEssentia.visSize() > 0) { for (Aspect aspect : this.recipeEssentia.getAspects()) { if
-             * (this.recipeEssentia.getAmount(aspect) > 0) { if (EssentiaHandler.drainEssentia(this, aspect,
-             * ForgeDirection.UNKNOWN, 12)) { this.recipeEssentia.reduce(aspect, 1);
-             * this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord); this.markDirty(); return; } //
-             * the Math.max statement ensures that it doesn't go below 0, // if the instability would put it below 10,
-             * it hard floors // the chance to add instability at 1/10 per tick or approx // a 10% chance per tick. or
-             * around +2 instability per sec // originally this caused a massive crash. if
-             * (this.worldObj.rand.nextInt(Math.max(100 - this.recipeInstability * 3, 10)) == 0) { ++this.instability; }
-             * // this is a reference to instability, was originally 25 if (this.instability > 500) { this.instability =
-             * 500; } this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord); this.markDirty(); } }
-             * this.checkSurroundings = true; }
-             */
+            if (this.recipeEssentia.visSize() > 0) {
+                for (Aspect aspect : this.recipeEssentia.getAspects()) {
+                    if (this.recipeEssentia.getAmount(aspect) > 0) {
+                        if (EssentiaHandler.drainEssentia(this, aspect, ForgeDirection.UNKNOWN, 12)) {
+                            this.recipeEssentia.reduce(aspect, 1);
+                            this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+                            this.markDirty();
+                            return;
+                        }
+                        // the Math.max statement ensures that it doesn't go below 0, // if the instability would put it
+                        // below 10,it hard floors // the chance to add instability at 1/10 per tick or approx // a 10%
+                        // chance per tick. oraround +2 instability per sec // originally this caused a massive crash.
+                        // if
+                        if (this.worldObj.rand.nextInt(Math.max(100 - this.recipeInstability * 3, 10)) == 0) {
+                            ++this.instability;
+                        }
+                        // this is a reference to instability, was originally 25 if (this.instability > 500) {
+                        // this.instability =500; }
+                        this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+                        this.markDirty();
+                    }
+                }
+                this.checkSurroundings = true;
+            }
 
             // this section is related to resetting the matrix if there are no items left in the recipe
             // also turns the central item into the desired item.
@@ -821,7 +829,7 @@ public class TileEntityInfusionMatrixAlpha extends TileInfusionMatrix implements
                                                 var10007,
                                                 32.0D));
                             }
-                            // itemcount is always 0, (at least when it reaches this, what the fuck is the point?
+                            // Item count is always 0. At least when it reaches this, what is the point?
                             else if (this.itemCount-- <= 1) {
 
                                 pedestalList[numPedestals] = (TilePedestal) te;

@@ -96,7 +96,7 @@ public class TileMatrixAlphaRenderer extends TileRunicMatrixRenderer {
     public void renderInfusionMatrix(TileEntityInfusionMatrixAlpha is, double par2, double par4, double par6,
             float par8) {
         GL11.glPushMatrix();
-        UtilsFX.bindTexture(VersionInfo.ModID, "model/infusion-2-gilded.png");
+        UtilsFX.bindTexture(VersionInfo.ModID, "model/infuser-2.png");
         GL11.glTranslatef((float) par2 + 0.5F, (float) par4 + 0.5F, (float) par6 + 0.5F);
         float ticks = (float) Minecraft.getMinecraft().renderViewEntity.ticksExisted + par8;
         if (is.getWorldObj() != null) {

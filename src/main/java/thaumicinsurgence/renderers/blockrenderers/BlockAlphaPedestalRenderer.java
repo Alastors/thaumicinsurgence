@@ -7,7 +7,6 @@ import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.client.renderers.block.BlockStoneDeviceRenderer;
-import thaumcraft.common.tiles.*;
 import thaumicinsurgence.block.BlockPedestalAlpha;
 import thaumicinsurgence.main.Config;
 

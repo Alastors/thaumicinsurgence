@@ -27,15 +27,8 @@ PreviousIntercepterLore=Do you hate how slow infusion is? Are you sick and tired
 item.ItemPactRing.name=Ring of Pacts
 
 
-PreviousIntercepterLore=Do you hate how slow infusion is? Are you sick and tired of the lag associated with WAing it? WELL DO I HAVE THE SOLUTION FOR YOU!!! FOR ONE LOW LOW PAYMENT OF [$4.99 warp] I CAN JAILBREAK YOUR INFUSION MATRIX FOR YOU AND ALLOW IT TO ACCEPT THE ESSENTIA PROVIDER!!! Place the intercepter directly below your infusion altar's center pedestal, it takes essentia from the bottom face.
-
-item.ItemPactRing.name=Ring of Pacts
-
-
 tc.research_name.TI_SanitizingSoapAlpha=Sanitizing Soap Alpha
-
 tc.research_text.TI_SanitizingSoapAlpha=Washing away the sins of the past
-
 
 tc.research_name.TI_SanitizingSoapBeta=Alastor's Soap
 tc.research_text.TI_SanitizingSoapBeta=In the [Deep Abyss] lies a [Great Deal] he said... but at what cost?
@@ -53,6 +46,10 @@ tc.research_name.TI_DeliciousKromer=[[Funky]] LITTLE [[Worm]]
 tc.research_text.TI_DeliciousKromer=THIS IS [One Purchase] YOU WILL [Regret] FOR THE REST OF YOUR LIFE!
 
 #Tiles
+tile.arcaneMarble.name=Arcane Marble Block
+tile.arcaneMarbleBrick.name=Arcane Marble Bricks
+tile.matrixAlpha.name=Arcane Marble Matrix
+tile.pedestalAlpha.name=Marble Pedestal
 
 #Items
 tile.infusionIntercepter.name=Infusion Intercepter
@@ -69,3 +66,201 @@ item.ItemThaumicInterfacer.name=Madman's Lens
 
 
 itemGroup.Thaumic Insurgence=Thaumic Insurgence
+
+#Planar Artifice
+itemGroup.Planar Artifice=Planar Artifice
+
+tile.alkimium_smeltery.name=Alkimium Alchemical Furnace
+tile.alkimium_smeltery_thaumium.name=Alkimium Thaumium Furnace
+tile.alkimium_smeltery_void.name=Alkimium Void Furnace
+tile.alkimium_smeltery_mithrillium.name=Alkimium Mithrillium Furnace
+tile.alkimium_smeltery_adaminite.name=Alkimium Adaminite Furnace
+tile.alkimium_smeltery_mithminite.name=Alkimium Mithminite Furnace
+
+tile.PA_PlanarDevice.0.name=Alkimium Construct
+tile.PA_PlanarDevice.1.name=Alkimium Block
+
+
+tile.PA_PlanarDevice.2.unused=Mithrillium Block
+tile.PA_PlanarDevice.3.unused=Adaminite Block
+tile.PA_PlanarDevice.4.unused=Mithminite Block
+
+item.alkimium.0.name=Alkimium Ingot
+item.alkimium.1.name=Alkimium Nugget
+item.alkimium.2.name=Alkimium Plate
+item.logo.name=--Mod Logo-- Report to Alastor
+
+item.alkimium_goggles.name=Alkimium Goggles
+item.alkimium_scribe.name=Alkimium Scribing Tools
+
+tc.research_name.PA_Alkimium=Planar Artifice
+tc.research_text.PA_Alkimium=Transformation through transmutation
+Alkimium.1=During your studies of Nether Wart, you discovered an aspect of magic unique to them. You discovered that it has some particular reactions with Thaumium, namely forming a new alloy you've labeled as "Alkimium." <BR><BR>You wonder where this might be able to be applied...
+
+tc.research_name.PA_Scribe=Alchemical Ink
+tc.research_text.PA_Scribe=Note-taking with magic
+AlkimiumScrib.1=You've noticed something peculiar, alkimium can be used to place vis stationary in space, one application of this is utilizing vis as a sort of ink via an alkimia clad scribe tip.
+
+tc.research_name.PA_Furnace=Alchemical Efficiency
+tc.research_text.PA_Furnace=Burning brighter than the sun
+AlkimiumFurnace.1=
+
+tc.research_name.PA_Goggles=Alchemical Goggles
+tc.research_text.PA_Goggles=Improving sight through alchemy
+AlkimiumGoggles.1=
+
+item.alkimium.name=alkimium
+
+#Arcana
+itemGroup.Arcana=Arcana
+
+item.arcanaLogo.name=--Mod Logo-- Report to Alastor
+
+item.arcanium_goggles.name=Arcanium Goggles
+
+tile.AR_WoodDevice.0.name=Dair Planks
+tile.AR_WoodDevice.1.name=Oblivion Planks
+tile.AR_WoodDevice.2.name=Arcanus Planks
+tile.AR_WoodDevice.3.name=Shimmerwood Planks
+tile.AR_WoodDevice.4.name=Polished Shimmerwood Planks
+tile.AR_WoodDevice.5.name=Tarnished Planks
+tile.AR_WoodDevice.6.name=Trypophobius Planks
+tile.AR_WoodDevice.7.name=Eucalyptus Planks
+tile.AR_WoodDevice.8.name=Hawthorn Planks
+tile.AR_WoodDevice.9.name=Willow Planks
+tile.AR_WoodDevice.10.name=Numnum Planks
+
+tile.AR_TaintedWoodDevice.0.name=Tainted Oak Planks
+tile.AR_TaintedWoodDevice.1.name=Tainted Spruce Planks
+tile.AR_TaintedWoodDevice.2.name=Tainted Birch Planks
+tile.AR_TaintedWoodDevice.3.name=Tainted Jungle Planks
+tile.AR_TaintedWoodDevice.4.name=Tainted Acacia Planks
+tile.AR_TaintedWoodDevice.5.name=Tainted Dark Oak Planks
+tile.AR_TaintedWoodDevice.6.name=Tainted Dair Planks
+tile.AR_TaintedWoodDevice.7.name=Tainted Arcanus Planks
+tile.AR_TaintedWoodDevice.8.name=Tainted Eucalyptus Planks
+tile.AR_TaintedWoodDevice.9.name=Tainted Hawthorn Planks
+tile.AR_TaintedWoodDevice.10.name=Tainted Willow Planks
+
+tile.AR_LogDevice2.0.name=Dair Log
+tile.AR_LogDevice2.1.name=Oblivion Log
+tile.AR_LogDevice2.2.name=Arcanus Log
+tile.AR_LogDevice2.3.name=Shimmerwood Log
+
+tile.AR_LogDevice1.0.name=Trypophobius Log
+tile.AR_LogDevice1.1.name=Eucalyptus Log
+tile.AR_LogDevice1.2.name=Hawthorn Log
+tile.AR_LogDevice1.3.name=Willow Log
+
+tile.AR_LogDevice3.0.name=Tarnished Log
+tile.AR_LogDevice3.1.name=Numnum Log
+
+tile.AR_TaintedLogDevice1.0.name=Tainted Oak Log
+tile.AR_TaintedLogDevice1.1.name=Tainted Spruce Log
+tile.AR_TaintedLogDevice1.2.name=Tainted Birch Log
+tile.AR_TaintedLogDevice1.3.name=Tainted Jungle Log
+
+tile.AR_TaintedLogDevice2.0.name=Tainted Acacia Log
+tile.AR_TaintedLogDevice2.1.name=Tainted Dark Oak Log
+tile.AR_TaintedLogDevice2.2.name=Tainted Dair Log
+
+tile.AR_TaintedLogDevice3.0.name=Tainted Arcanus Log
+tile.AR_TaintedLogDevice3.1.name=Tainted Eucalyptus Log
+tile.AR_TaintedLogDevice3.2.name=Tainted Hawthorn Log
+tile.AR_TaintedLogDevice3.3.name=Tainted Willow Log
+
+tile.AR_StoneDevice.0.name=Amber Ore
+tile.AR_StoneDevice.1.name=Vermilion Ore
+tile.AR_StoneDevice.2.name=Ruby Ore
+tile.AR_StoneDevice.3.name=Silver Ore
+tile.AR_StoneDevice.4.name=Arcanium Ore
+tile.AR_StoneDevice.5.name=Broken Ore
+tile.AR_StoneDevice.6.name=Arcane Stone Block
+tile.AR_StoneDevice.7.name=Arcane Stone Bricks
+
+tile.AR_TaintedStoneDevice.0.name=Tainted Stone
+tile.AR_TaintedStoneDevice.1.name=Tainted Gold Ore
+tile.AR_TaintedStoneDevice.2.name=Tainted Iron Ore
+tile.AR_TaintedStoneDevice.3.name=Curse-Coal Ore
+tile.AR_TaintedStoneDevice.4.name=Mirrored Ore
+tile.AR_TaintedStoneDevice.5.name=Hexgem Ore
+tile.AR_TaintedStoneDevice.6.name=Blightstone Ore
+tile.AR_TaintedStoneDevice.7.name=Avari Ore
+tile.AR_TaintedStoneDevice.8.name=Timeworn Ore
+tile.AR_TaintedStoneDevice.9.name=Haruspex Ore
+tile.AR_TaintedStoneDevice.10.name=Blood-Tear Ore
+tile.AR_TaintedStoneDevice.11.name=Tarnished Ore
+tile.AR_TaintedStoneDevice.12.name=True Arcanium Ore
+tile.AR_TaintedStoneDevice.13.name=Tainted-Wrought Ore
+
+tile.AR_TaintedStoneDevice2.0.name=Tainted Stone Bricks
+tile.AR_TaintedStoneDevice2.1.name=Tainted Bricks
+tile.AR_TaintedStoneDevice2.2.name=Taintstone
+tile.AR_TaintedStoneDevice2.3.name=Cursed Obsidian
+
+tile.AR_LeafDevice.0.name=Dair Leaves
+tile.AR_LeafDevice.1.name=Eucalyptus Leaves
+tile.AR_LeafDevice.2.name=Hawthorn Leaves
+tile.AR_LeafDevice.3.name=Willow Leaves
+tile.AR_LeafDevice.4.name=Arcanus Leaves
+tile.AR_LeafDevice.5.name=Shimmerwood Leaves
+
+tile.AR_CursedLeafDevice.0.name=Trypophobius Leaves
+tile.AR_CursedLeafDevice.1.name=Oblivion Leaves
+tile.AR_CursedLeafDevice.2.name=Ancient Oblivion Leaves
+tile.AR_CursedLeafDevice.3.name=Tarnished Leaves
+tile.AR_CursedLeafDevice.4.name=Numnum Leaves
+
+tile.AR_TaintedVanillaSapling.0.name=Corrupted Oak Sapling
+tile.AR_TaintedVanillaSapling.1.name=Twisted Spruced Sapling
+tile.AR_TaintedVanillaSapling.2.name=Warped Birch Sapling
+tile.AR_TaintedVanillaSapling.3.name=Tainted Jungle Sapling
+tile.AR_TaintedVanillaSapling.4.name=Evil Acacia Sapling
+tile.AR_TaintedVanillaSapling.5.name=Oblivion Oak Sapling
+
+tile.AR_TaintedVanillaLeafDevice.0.name=Corrupted Oak Leaves
+tile.AR_TaintedVanillaLeafDevice.1.name=Twisted Spruced Leaves
+tile.AR_TaintedVanillaLeafDevice.2.name=Warped Birch Leaves
+tile.AR_TaintedVanillaLeafDevice.3.name=Tainted Jungle Leaves
+tile.AR_TaintedVanillaLeafDevice.4.name=Evil Acacia Leaves
+tile.AR_TaintedVanillaLeafDevice.5.name=Oblivion Oak Leaves
+
+tile.AR_TaintedSapling.0.name=Tainted Dair Sapling
+tile.AR_TaintedSapling.1.name=Tainted Arcanus Sapling
+tile.AR_TaintedSapling.2.name=Tainted Willow Sapling
+tile.AR_TaintedSapling.3.name=Tainted Eucalyptus Sapling
+tile.AR_TaintedSapling.4.name=Tainted Hawthorn Sapling
+
+tile.AR_CursedSapling.0.name=Trypophobius Sapling
+tile.AR_CursedSapling.1.name=Oblivion Sapling
+tile.AR_CursedSapling.2.name=Ancient Oblivion Sapling
+tile.AR_CursedSapling.3.name=Tarnished Sapling
+tile.AR_CursedSapling.4.name=Numnum Sapling
+
+tile.AR_TaintedLeafDevice.0.name=Tainted Dair Leaves
+tile.AR_TaintedLeafDevice.1.name=Tainted Arcanus Leaves
+tile.AR_TaintedLeafDevice.2.name=Tainted Willow Leaves
+tile.AR_TaintedLeafDevice.3.name=Tainted Eucalyptus Leaves
+tile.AR_TaintedLeafDevice.4.name=Tainted Hawthorn Leaves
+
+tile.AR_Sapling.0.name=Dair Sapling
+tile.AR_Sapling.1.name=Eucalyptus Sapling
+tile.AR_Sapling.2.name=Hawthorn Sapling
+tile.AR_Sapling.3.name=Willow Sapling
+tile.AR_Sapling.4.name=Arcanus Sapling
+tile.AR_Sapling.5.name=Shimmerwood Sapling
+
+tc.research_name.AR_Base=Arcana
+tc.research_text.AR_Base=Transmutation through taint
+
+tc.research_name.AR_ArcanaSapling=Arcane Arborology
+tc.research_text.AR_ArcanaSapling=The Study of Arcane Trees
+
+tc.research_name.AR_CursedSapling=Cursed Arborology
+tc.research_text.AR_CursedSapling=The Study of Cursed Trees
+
+tc.research_name.AR_TaintedVanilla=Corrupted Arborology
+tc.research_text.AR_TaintedVanilla=The Study of Corrupted Trees
+
+tc.research_name.AR_TaintedSapling=Tainted Arborology
+tc.research_text.AR_TaintedSapling=The Study of Tainted Trees

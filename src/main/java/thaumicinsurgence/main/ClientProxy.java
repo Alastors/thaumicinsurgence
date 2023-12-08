@@ -14,7 +14,8 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import thaumicinsurgence.client.gui.GuiAdvancedWand;
+import thaumicinsurgence.main.modules.planar_artifice.client.GuiAlkimiumAlchemyFurnace;
+import thaumicinsurgence.main.modules.planar_artifice.core.blocks.tiles.TileAlkimiumAlchemicalFurnace;
 import thaumicinsurgence.renderers.blockrenderers.BlockAlphaPedestalRenderer;
 import thaumicinsurgence.renderers.blockrenderers.BlockMatrixAlphaRenderer;
 import thaumicinsurgence.renderers.blockrenderers.BlockPillarAlphaRenderer;
@@ -73,12 +74,14 @@ public class ClientProxy extends CommonProxy {
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         if (world instanceof WorldClient) {
-            switch (ID) {
-                case 0:
-                    return new GuiAdvancedWand(player.inventory, world, x, y, z);
-                default:
-                    break;
+            if (ID == 9) {
+                return new GuiAlkimiumAlchemyFurnace(
+                        player.inventory,
+                        (TileAlkimiumAlchemicalFurnace) world.getTileEntity(x, y, z));
             }
+            /*
+             * switch (ID) { case 0: return new GuiAdvancedWand(player.inventory, world, x, y, z); default: break; }
+             */ // bring back when the advanced wand is finished
         }
         return null;
     }

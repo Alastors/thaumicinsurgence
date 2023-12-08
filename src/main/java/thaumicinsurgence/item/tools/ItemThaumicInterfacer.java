@@ -74,24 +74,9 @@ public class ItemThaumicInterfacer extends Item {
                                         + (int) Math.sqrt(al.getAmount(Aspect.ENTROPY))));
                 return true;
             } else if (matrix instanceof TilePedestal) {
-                TilePedestal pedestal = (TilePedestal) matrix;
-                ItemStack wand = pedestal.getStackInSlot(0);
-                ItemWandCasting wand2 = (ItemWandCasting) wand.getItem();
-
-                player.addChatMessage(new ChatComponentTranslation("Your wand is: " + wand.getDisplayName()));
-                player.addChatMessage(
-                        new ChatComponentTranslation("Your wand is: " + wand2.getCap(wand).getItem().getDisplayName()));
-                player.addChatMessage(
-                        new ChatComponentTranslation("Your wand is: " + wand2.getRod(wand).getItem().getDisplayName()));
-
-                ItemStack cap = wand2.getCap(wand).getItem();
-                ItemStack rod = wand2.getRod(wand).getItem();
-                player.entityDropItem(wand2.getCap(wand).getItem(), 0.0f);
-                player.entityDropItem(wand2.getCap(wand).getItem(), 0.0f);
-                player.entityDropItem(wand2.getRod(wand).getItem(), 0.0f);
-
+                player.addChatMessage(new ChatComponentText("Pedestal"));
             } else {
-                player.addChatMessage(new ChatComponentText("COCK A DOODLE DO MOTHER FUCKER"));
+                player.addChatMessage(new ChatComponentText("Error: Mudspaw"));
             }
         }
 

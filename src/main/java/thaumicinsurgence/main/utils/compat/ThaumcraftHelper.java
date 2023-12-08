@@ -15,6 +15,12 @@ import thaumcraft.api.research.ResearchItem;
 import thaumcraft.api.research.ResearchPage;
 import thaumcraft.common.config.ConfigItems;
 import thaumicinsurgence.main.Config;
+import thaumicinsurgence.main.modules.arcana.utils.ArcanaRecipes;
+import thaumicinsurgence.main.modules.arcana.utils.ArcanaResearch;
+import thaumicinsurgence.main.modules.planar_artifice.core.PlanarAspects;
+import thaumicinsurgence.main.modules.planar_artifice.utils.PlanarItems;
+import thaumicinsurgence.main.modules.planar_artifice.utils.PlanarRecipes;
+import thaumicinsurgence.main.modules.planar_artifice.utils.PlanarResearch;
 import thaumicinsurgence.main.utils.BlockInterface;
 import thaumicinsurgence.main.utils.ItemInterface;
 import thaumicinsurgence.main.utils.LocalizationManager;
@@ -197,7 +203,9 @@ public class ThaumcraftHelper implements IModHelper {
 
     public static final String Name = "Thaumcraft";
 
-    public void preInit() {}
+    public void preInit() {
+        PlanarAspects.addPlanar_Aspects();
+    }
 
     public void init() {
         getBlocks();
@@ -207,7 +215,12 @@ public class ThaumcraftHelper implements IModHelper {
     public void postInit() {
         setupItemAspects();
         setupCrafting();
+        PlanarRecipes.planarCrafting();
+        PlanarRecipes.planarAlchemy();
+        ArcanaRecipes.arcanaAlchemy();
         setupResearch();
+        PlanarResearch.planarResearch();
+        ArcanaResearch.arcanaResearch();
     }
 
     public static InfusionRecipe infusionIntercepter;
@@ -353,7 +366,7 @@ public class ThaumcraftHelper implements IModHelper {
                 5,
                 5,
                 5,
-                new ItemStack(Config.redCrownItem));
+                new ItemStack(Config.eightBitRedCrownItem));
 
         thaumicInterfacerPage = new ResearchItem(
                 "TI_ThaumicInterfacer",
@@ -422,5 +435,8 @@ public class ThaumcraftHelper implements IModHelper {
         return new ResearchPage(LocalizationManager.getLocalizedString("tc.research_page." + ident));
     }
 
-    public static void setupItemAspects() {}
+    public static void setupItemAspects() {
+        // Planar Artifice
+        PlanarItems.setupItemAspects();
+    }
 }
